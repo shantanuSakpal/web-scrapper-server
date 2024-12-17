@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 8080;
 const allowedOrigins = ["http://localhost:3000"];
 
 // API key middleware
-const API_KEY = "your-secret-api-key"; // Store this in environment variables in production
+const API_KEY = process.env.API_KEY;
 
 const authenticateApiKey = (req, res, next) => {
   const apiKey = req.headers["x-api-key"];
