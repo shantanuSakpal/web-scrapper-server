@@ -2,10 +2,7 @@ const puppeteer = require("puppeteer");
 
 const getAllText = async (linkToScrap) => {
   console.log("link to scrap", linkToScrap);
-  const browser = await puppeteer.launch({
-    headless: false,
-    defaultViewport: null,
-  });
+  const browser = await puppeteer.launch();
 
   const page = await browser.newPage();
   const visitedUrls = new Set();
