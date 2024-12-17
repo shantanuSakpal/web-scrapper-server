@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const scrapperRoute = require("./routes/scrapperServiceRouter");
@@ -6,10 +7,13 @@ const PORT = process.env.PORT || 8080;
 const allowedOrigins = ["http://localhost:3000"];
 
 // API key middleware
-const API_KEY = process.env.API_KEY;
 
 const authenticateApiKey = (req, res, next) => {
   const apiKey = req.headers["x-api-key"];
+  console.log("api key ", apiKey);
+  const API_KEY = process.env.API_KEY;
+
+  console.log(",my api key ", API_KEY);
 
   if (!apiKey) {
     return res.status(401).json({ message: "API key is missing" });
